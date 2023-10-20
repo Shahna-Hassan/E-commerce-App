@@ -17,13 +17,25 @@ void decrement(){
 
   void addCart(CartModel newCart)
 {
-  list.add(newCart);
+  bool isDuplicate=list.any((existingItem) =>existingItem.productTitle==newCart.productTitle );
+  if(isDuplicate){
+    CartModel existingItem=list.firstWhere((existingItem) => existingItem.productTitle==newCart.productTitle);
+
+existingItem.productQuantity++;
+  }
+  else{
+
+ list.add(newCart);
   notifyListeners();
+  }
+  
+ 
 }
 
  deleteCart(int index){
   list.removeAt(index);
   notifyListeners();
 }
+
 
 }

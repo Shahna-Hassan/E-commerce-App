@@ -2,7 +2,7 @@
 class CartModel {
  final String productimagename;
  final String productTitle;
- final int productQuantity;
+  int productQuantity;
  final int productPrice;
   
 
